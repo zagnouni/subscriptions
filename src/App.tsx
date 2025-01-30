@@ -37,7 +37,7 @@ function App() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center space-x-2">
               <Command className="w-6 h-6" />
-              <span className="font-bold text-xl">SubTrack</span>
+              <span className="font-bold text-xl">Bufflio</span>
               <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
                 #1 Tool for Nomads ✨
               </span>
@@ -237,28 +237,57 @@ function App() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="p-8">
-              <DollarSign className="w-8 h-8 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold mb-2">$240</h3>
-              <p className="text-gray-600">Average yearly savings per user 💰</p>
-            </div>
-            <div className="p-8">
-              <BarChart className="w-8 h-8 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold mb-2">15+</h3>
-              <p className="text-gray-600">Subscriptions managed on average 📈</p>
-            </div>
-            <div className="p-8">
-              <Shield className="w-8 h-8 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold mb-2">100K+</h3>
-              <p className="text-gray-600">Active users worldwide 🌍</p>
-            </div>
-          </div>
+     {/* Stats Section */}
+<section className="py-20 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Stat 1: Yearly Savings */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+      >
+        <div className="text-center">
+          <DollarSign className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h3 className="text-5xl font-bold mb-2">$240</h3>
+          <p className="text-gray-600">Average yearly savings per user 💰</p>
         </div>
-      </section>
+      </motion.div>
+
+      {/* Stat 2: Subscriptions Managed */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
+        className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+      >
+        <div className="text-center">
+          <BarChart className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h3 className="text-5xl font-bold mb-2">15+</h3>
+          <p className="text-gray-600">Subscriptions managed on average 📈</p>
+        </div>
+      </motion.div>
+
+      {/* Stat 3: Active Users */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
+        className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+      >
+        <div className="text-center">
+          <Shield className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h3 className="text-5xl font-bold mb-2">10K+</h3>
+          <p className="text-gray-600">Active users worldwide 🌍</p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Feature Image Section 1 */}
       <section className="py-20">
@@ -344,7 +373,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Loved by Digital Nomads ❤️</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Join thousands of remote workers who trust SubTrack to manage their subscriptions
+              Join thousands of remote workers who trust Bufflio to manage their subscriptions
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -353,14 +382,14 @@ function App() {
               name="Sarah Chen"
               role="Digital Nomad"
               location="Currently in Bali 🌴"
-              quote="SubTrack has saved me hundreds of dollars by reminding me of subscriptions I no longer needed. Perfect for my nomadic lifestyle!"
+              quote="Bufflio has saved me hundreds of dollars by reminding me of subscriptions I no longer needed. Perfect for my nomadic lifestyle!"
             />
             <TestimonialCard
               image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
               name="Mark Thompson"
               role="Remote Developer"
               location="Working from Portugal 🇵🇹"
-              quote="As someone managing multiple AWS services, SubTrack helps me stay on top of all my cloud spending. It's a game-changer!"
+              quote="As someone managing multiple AWS services, Bufflio helps me stay on top of all my cloud spending. It's a game-changer!"
             />
             <TestimonialCard
               image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200"
@@ -424,7 +453,7 @@ function App() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Command className="w-6 h-6" />
-                <span className="font-bold text-xl">SubTrack</span>
+                <span className="font-bold text-xl">Bufflio</span>
               </div>
               <p className="text-gray-600">
                 Never miss a subscription renewal again ✨
@@ -455,7 +484,7 @@ function App() {
             </div>
           </div>
           <div className="border-t mt-12 pt-8 text-center text-gray-600">
-            <p>&copy; 2025 SubTrack. All rights reserved. Made with ❤️ for the nomad community</p>
+            <p>&copy; 2025 Bufflio. All rights reserved. Made with ❤️ for the nomad community</p>
           </div>
         </div>
       </footer>
