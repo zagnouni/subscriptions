@@ -46,7 +46,7 @@ function App() {
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
               <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-                Get Started 🚀
+              Start for free 🚀
               </button>
             </div>
             <div className="md:hidden flex items-center">
@@ -64,7 +64,7 @@ function App() {
               <a href="#features" className="block text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="block text-gray-600 hover:text-gray-900">Pricing</a>
               <button className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-                Get Started 🚀
+              Start for free 🚀
               </button>
             </div>
           </div>
@@ -73,31 +73,35 @@ function App() {
 
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <span className="bg-purple-100 text-purple-800 text-sm px-4 py-2 rounded-full font-medium">
-              Loved by 100K+ digital nomads worldwide 🌎
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-            Never miss a
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> subscription </span>
-            renewal ✨
-          </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            Track all your subscriptions in one place. Get timely reminders before renewals so you can make informed decisions about your digital services. Perfect for nomads! 🎯
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
-              Start Tracking <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
-            <button className="border border-gray-200 px-8 py-4 rounded-lg hover:bg-gray-50 transition flex items-center justify-center">
-              Watch Demo <Bell className="ml-2 w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </section>
+      <section className="pt-10 md:pt-20 pb-16 px-4">
+  <div className="max-w-4xl mx-auto text-center">
+    {/* Loved by 100K Badge */}
+    <div className="mb-6">
+      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full font-medium">
+        Loved by 100K+ digital nomads worldwide 🌎
+      </span>
+    </div>
+
+    {/* Main Heading */}
+    <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+      Never miss a
+      <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> subscription </span>
+      renewal ✨
+    </h1>
+
+    {/* Description */}
+    <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+      Track all your subscriptions in one place. Get timely reminders before renewals so you can make informed decisions about your digital services. Perfect for nomads! 🎯
+    </p>
+
+    {/* Single Button */}
+    <div className="flex justify-center">
+      <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+      Start for free <ArrowRight className="ml-2 w-5 h-5" />
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* Features Section */}
  {/* Features Section */}
@@ -404,47 +408,48 @@ function App() {
 
       {/* Services Section */}
  {/* Services Section */}
- <section className="py-20" id="services">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Track Any Service 🎯</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Support for hundreds of subscription services, from streaming to cloud services.
-          </p>
-        </div>
+ {/* Services Section */}
+<section className="py-20" id="services">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl font-bold mb-4">Track Any Service 🎯</h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Support for hundreds of subscription services, from streaming to cloud services.
+      </p>
+    </div>
 
-        {/* Swiper Carousel */}
-        <Swiper
-  modules={[Autoplay]}
-  spaceBetween={30}
-  slidesPerView={4}
-  autoplay={{
-    delay: 0, // No delay between slides
-    disableOnInteraction: false, // Continue autoplay even after user interaction
-  }}
-  speed={3000} // Adjust scrolling speed (in milliseconds)
-  loop={true} // Enable infinite loop
-  breakpoints={{
-    320: { slidesPerView: 2, spaceBetween: 20 }, // Mobile
-    768: { slidesPerView: 3, spaceBetween: 30 }, // Tablet
-    1024: { slidesPerView: 4, spaceBetween: 40 }, // Desktop
-  }}
->
-  {services.map((service) => (
-    <SwiperSlide key={service.name}>
-      <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition flex flex-col items-center justify-center">
-        <img
-          src={service.logo}
-          alt={service.name}
-          className="w-16 h-16 mb-4" // Adjust size as needed
-        />
-        <p className="font-semibold text-center">{service.name}</p>
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
-      </div>
-    </section>
+    {/* Swiper Carousel */}
+    <Swiper
+      modules={[Autoplay]}
+      spaceBetween={30}
+      slidesPerView={4}
+      autoplay={{
+        delay: 0, // No delay between slides
+        disableOnInteraction: false, // Continue autoplay even after user interaction
+      }}
+      speed={3000} // Adjust scrolling speed (in milliseconds)
+      loop={true} // Enable infinite loop
+      breakpoints={{
+        320: { slidesPerView: 2, spaceBetween: 20 }, // Mobile
+        768: { slidesPerView: 3, spaceBetween: 30 }, // Tablet
+        1024: { slidesPerView: 4, spaceBetween: 40 }, // Desktop
+      }}
+    >
+      {services.map((service) => (
+        <SwiperSlide key={service.name}>
+          <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition flex items-center space-x-4">
+            <img
+              src={service.logo}
+              alt={service.name}
+              className="w-10 h-10" // Adjust logo size
+            />
+            <p className="font-semibold">{service.name}</p>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-50 py-12">
