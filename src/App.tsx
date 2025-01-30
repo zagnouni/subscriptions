@@ -1,7 +1,26 @@
-import React from 'react';
-import { ArrowRight, Command, Bell, Calendar, CreditCard, DollarSign, BarChart, Shield, Check, Globe, Laptop, Smartphone, Zap, Clock, Sparkles } from 'lucide-react';
-
+import React, { useState } from 'react';
+import { ArrowRight, Command, Bell, Calendar, CreditCard, DollarSign, BarChart, Shield, Check, Globe, Laptop, Smartphone, Zap, Clock, Sparkles, Menu, X } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+  const services = [
+    { name: 'Netflix', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg' },
+    { name: 'Amazon AWS', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/amazonaws.svg' },
+    { name: 'Spotify', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/spotify.svg' },
+    { name: 'Microsoft 365', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/microsoft.svg' },
+    { name: 'Adobe CC', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/adobe.svg' },
+    { name: 'Google Cloud', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/googlecloud.svg' },
+    { name: 'Apple One', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/apple.svg' },
+    { name: 'Disney+', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/disneyplus.svg' },
+  ];
   return (
     <div className="min-h-screen bg-white">
       {/* Community Banner */}
@@ -26,14 +45,32 @@ function App() {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900">About</a>
               <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
                 Get Started 🚀
               </button>
             </div>
+            <div className="md:hidden flex items-center">
+              <button onClick={toggleMobileMenu} className="text-gray-600 hover:text-gray-900">
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="px-4 py-2 space-y-4">
+              <a href="#features" className="block text-gray-600 hover:text-gray-900">Features</a>
+              <a href="#pricing" className="block text-gray-600 hover:text-gray-900">Pricing</a>
+              <button className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+                Get Started 🚀
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
+
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
@@ -63,33 +100,65 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50" id="features">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Stay in Control 🎮</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Track and manage all your subscriptions with ease. Never be surprised by an auto-renewal again.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<Bell className="w-6 h-6 text-purple-600" />}
-              title="Smart Notifications 🔔"
-              description="Get timely reminders before any subscription renewal. Choose when and how you want to be notified."
-            />
-            <FeatureCard
-              icon={<Calendar className="w-6 h-6 text-purple-600" />}
-              title="Renewal Calendar 📅"
-              description="Visual calendar view of all your upcoming renewals. Plan your subscriptions better."
-            />
-            <FeatureCard
-              icon={<CreditCard className="w-6 h-6 text-purple-600" />}
-              title="Service Tracking 📊"
-              description="Track subscriptions across Netflix, AWS, Spotify, and hundreds of other services."
-            />
-          </div>
-        </div>
-      </section>
+ {/* Features Section */}
+<section className="py-20 bg-gray-50" id="features">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+    <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="text-center mb-16"
+>
+  <h2 className="text-3xl font-bold mb-4">Stay in Control 🎮</h2>
+  <p className="text-gray-600 max-w-2xl mx-auto">
+    Track and manage all your subscriptions with ease. Never be surprised by an auto-renewal again.
+  </p>
+</motion.div>
+    </div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: { transition: { staggerChildren: 0.2 } }, // Stagger animations
+      }}
+      className="grid md:grid-cols-3 gap-8"
+    >
+      <FeatureCard
+        icon={<Bell className="w-6 h-6 text-purple-600" />}
+        title="Smart Notifications 🔔"
+        description="Get timely reminders before any subscription renewal. Choose when and how you want to be notified."
+      />
+      <FeatureCard
+        icon={<Calendar className="w-6 h-6 text-purple-600" />}
+        title="Renewal Calendar 📅"
+        description="Visual calendar view of all your upcoming renewals. Plan your subscriptions better."
+      />
+      <FeatureCard
+        icon={<CreditCard className="w-6 h-6 text-purple-600" />}
+        title="Service Tracking 📊"
+        description="Track subscriptions across Netflix, AWS, Spotify, and hundreds of other services."
+      />
+      <FeatureCard
+        icon={<DollarSign className="w-6 h-6 text-purple-600" />}
+        title="Spending Insights 💸"
+        description="Understand your subscription spending patterns with detailed analytics and reports."
+      />
+      <FeatureCard
+        icon={<Shield className="w-6 h-6 text-purple-600" />}
+        title="Security Alerts 🔒"
+        description="Get notified if any of your subscription services experience a security breach."
+      />
+      <FeatureCard
+        icon={<Zap className="w-6 h-6 text-purple-600" />}
+        title="Quick Actions ⚡"
+        description="Easily cancel or pause subscriptions directly from the app with just one click."
+      />
+    </motion.div>
+  </div>
+</section>
 
       {/* Pricing Section */}
       <section className="py-20" id="pricing">
@@ -305,23 +374,48 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Track Any Service 🎯</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Support for hundreds of subscription services, from streaming to cloud services
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['Netflix', 'Amazon AWS', 'Spotify', 'Microsoft 365', 'Adobe CC', 'Google Cloud', 'Apple One', 'Disney+'].map((service) => (
-              <div key={service} className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition">
-                <p className="font-semibold text-center">{service}</p>
-              </div>
-            ))}
-          </div>
+ {/* Services Section */}
+ <section className="py-20" id="services">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Track Any Service 🎯</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Support for hundreds of subscription services, from streaming to cloud services.
+          </p>
         </div>
-      </section>
+
+        {/* Swiper Carousel */}
+        <Swiper
+  modules={[Autoplay]}
+  spaceBetween={30}
+  slidesPerView={4}
+  autoplay={{
+    delay: 0, // No delay between slides
+    disableOnInteraction: false, // Continue autoplay even after user interaction
+  }}
+  speed={3000} // Adjust scrolling speed (in milliseconds)
+  loop={true} // Enable infinite loop
+  breakpoints={{
+    320: { slidesPerView: 2, spaceBetween: 20 }, // Mobile
+    768: { slidesPerView: 3, spaceBetween: 30 }, // Tablet
+    1024: { slidesPerView: 4, spaceBetween: 40 }, // Desktop
+  }}
+>
+  {services.map((service) => (
+    <SwiperSlide key={service.name}>
+      <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition flex flex-col items-center justify-center">
+        <img
+          src={service.logo}
+          alt={service.name}
+          className="w-16 h-16 mb-4" // Adjust size as needed
+        />
+        <p className="font-semibold text-center">{service.name}</p>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+      </div>
+    </section>
 
       {/* Footer */}
       <footer className="bg-gray-50 py-12">
@@ -347,7 +441,6 @@ function App() {
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900">About</a></li>
                 <li><a href="#" className="hover:text-gray-900">Blog</a></li>
                 <li><a href="#" className="hover:text-gray-900">Support</a></li>
               </ul>
@@ -362,7 +455,7 @@ function App() {
             </div>
           </div>
           <div className="border-t mt-12 pt-8 text-center text-gray-600">
-            <p>&copy; 2024 SubTrack. All rights reserved. Made with ❤️ for the nomad community</p>
+            <p>&copy; 2025 SubTrack. All rights reserved. Made with ❤️ for the nomad community</p>
           </div>
         </div>
       </footer>
@@ -372,11 +465,17 @@ function App() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // Start hidden and slightly below
+      whileInView={{ opacity: 1, y: 0 }} // Animate to fully visible and in place
+      viewport={{ once: true }} // Only animate once
+      transition={{ duration: 0.5, ease: "easeOut" }} // Animation duration and easing
+      className="bg-white p-8 rounded-xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition"
+    >
       <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </div>
+    </motion.div>
   );
 }
 
