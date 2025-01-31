@@ -188,9 +188,10 @@ function App() {
                 <PricingFeature text="Monthly spending summary" />
                 <PricingFeature text="Calendar view" />
               </ul>
-              <button className="w-full py-3 px-4 border border-black text-black rounded-lg hover:bg-gray-50 transition">
+              <a href="https://app.bufflio.com" className="w-full py-3 px-4 border border-black text-black rounded-lg hover:bg-gray-50 transition text-center block">
                 Get Started
-              </button>
+               </a>
+
             </div>
 
             {/* Pro Tier */}
@@ -212,9 +213,9 @@ function App() {
                 <PricingFeature text="Custom categories" />
                 <PricingFeature text="Priority support" />
               </ul>
-              <button className="w-full py-3 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+              <a href='https://app.bufflio.com' className="w-full py-3 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
                 Start Free Trial ✨
-              </button>
+              </a>
             </div>
 
             {/* Team Tier */}
