@@ -69,9 +69,9 @@ function App() {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-              <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+              <a href='https://app.bufflio.com/' className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
               Start for free 🚀
-              </button>
+              </a>
             </div>
             <div className="md:hidden flex items-center">
               <button onClick={toggleMobileMenu} className="text-gray-600 hover:text-gray-900">
@@ -87,9 +87,9 @@ function App() {
             <div className="px-4 py-2 space-y-4">
               <a href="#features" className="block text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="block text-gray-600 hover:text-gray-900">Pricing</a>
-              <button className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+              <a href='https://app.bufflio.com/' className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
               Start for free 🚀
-              </button>
+              </a>
             </div>
           </div>
         )}
@@ -120,9 +120,9 @@ function App() {
 
     {/* Single Button */}
     <div className="flex justify-center">
-      <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+      <a href='https://app.bufflio.com/' className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
       Start for free <ArrowRight className="ml-2 w-5 h-5" />
-      </button>
+      </a>
     </div>
   </div>
 </section>
