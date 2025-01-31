@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,7 +24,29 @@ function App() {
     { name: 'Disney+', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/disneyplus.svg' },
   ];
   return (
+    <HelmetProvider>
     <div className="min-h-screen bg-white">
+          <Helmet>
+        <title>Bufflio - Never Miss a Subscription Renewal</title>
+        <meta
+          name="description"
+          content="Track all your subscriptions in one place. Get timely reminders before renewals so you can make informed decisions about your digital services. Perfect for nomads!"
+        />
+        <meta
+          name="keywords"
+          content="subscription tracker, subscription management, digital nomad tools, subscription reminders, subscription renewal"
+        />
+        <meta name="author" content="Bufflio Team" />
+        <meta property="og:title" content="Bufflio - Never Miss a Subscription Renewal" />
+        <meta
+          property="og:description"
+          content="Track all your subscriptions in one place. Get timely reminders before renewals so you can make informed decisions about your digital services. Perfect for nomads!"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bufflio.com" />
+        <meta property="og:image" content="https://bufflio.com/og-image.png" />
+        <link rel="canonical" href="https://bufflio.com/" />
+      </Helmet>
       {/* Community Banner */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-2">
@@ -495,6 +519,8 @@ function App() {
         </div>
       </footer>
     </div>
+    </HelmetProvider>
+
   );
 }
 
