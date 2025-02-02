@@ -56,45 +56,58 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center space-x-2">
-              <Command className="w-6 h-6" />
-              <span className="font-bold text-xl">Bufflio</span>
-              <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
-                #1 Tool for Nomads ✨
-              </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-              <a href='https://app.bufflio.com/' className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-              Start for free 🚀
-              </a>
-            </div>
-            <div className="md:hidden flex items-center">
-              <button onClick={toggleMobileMenu} className="text-gray-600 hover:text-gray-900">
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
+      {/* Navigation */}
+<nav className="sticky top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between h-16 items-center">
+      {/* Left Section - Logo */}
+      <div className="flex items-center space-x-2">
+        <Command className="w-6 h-6" />
+        <span className="font-bold text-xl">Bufflio</span>
+        <span className="hidden sm:inline bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
+          #1 Tool for Nomads ✨
+        </span>
+      </div>
+
+      {/* Center Section - Features/Pricing (Desktop) */}
+      <div className="hidden md:flex flex-1 justify-center space-x-8">
+        <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
+        <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
+      </div>
+
+      {/* Right Section - Login + CTA (Desktop) */}
+      <div className="hidden md:flex items-center space-x-6">
+        <a href="https://app.bufflio.com/admin/login" className="text-gray-600 hover:text-gray-900">
+          Login
+        </a>
+        <a href="https://app.bufflio.com/admin/register" className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+          Start for free 🚀
+        </a>
+      </div>
+
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden flex items-center">
+        <button onClick={toggleMobileMenu} className="text-gray-600 hover:text-gray-900">
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile Menu */}
+    {isMobileMenuOpen && (
+      <div className="md:hidden bg-white border-t">
+        <div className="px-4 py-2 space-y-4">
+          <a href="#features" className="block text-gray-600 hover:text-gray-900">Features</a>
+          <a href="#pricing" className="block text-gray-600 hover:text-gray-900">Pricing</a>
+          <a href="https://app.bufflio.com/login" className="block text-gray-600 hover:text-gray-900">Login</a>
+          <a href="https://app.bufflio.com/admin/register" className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+            Start for free 🚀
+          </a>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-4 py-2 space-y-4">
-              <a href="#features" className="block text-gray-600 hover:text-gray-900">Features</a>
-              <a href="#pricing" className="block text-gray-600 hover:text-gray-900">Pricing</a>
-              <a href='https://app.bufflio.com/' className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-              Start for free 🚀
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
-
+      </div>
+    )}
+  </div>
+</nav>
 
       {/* Hero Section */}
       <section className="pt-10 md:pt-20 pb-16 px-4">
@@ -120,7 +133,7 @@ function App() {
 
     {/* Single Button */}
     <div className="flex justify-center">
-      <a href='https://app.bufflio.com/' className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+      <a href='https://app.bufflio.com/admin/register' className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
       Start for free <ArrowRight className="ml-2 w-5 h-5" />
       </a>
     </div>
