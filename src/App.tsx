@@ -133,7 +133,7 @@ function App() {
 
     {/* Single Button */}
     <div className="flex justify-center">
-      <a href='https://app.bufflio.com/admin/register' className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+      <a href="https://app.bufflio.com/admin/register" className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
       Start for free <ArrowRight className="ml-2 w-5 h-5" />
       </a>
     </div>
