@@ -64,7 +64,7 @@ function App() {
       <div className="flex items-center space-x-2">
         <Command className="w-6 h-6" />
         <span className="font-bold text-xl">Bufflio</span>
-        <span className="hidden sm:inline bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
+        <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
           #1 Tool for Nomads ✨
         </span>
       </div>
